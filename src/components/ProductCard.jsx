@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { add, isInCart } from "../features/cart/cartSlice"; 
 import { FaStar } from "react-icons/fa";
+import {  FaShoppingCart } from "react-icons/fa";
+
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
@@ -14,21 +16,21 @@ const ProductCard = ({ product }) => {
   const isProductInCart = isInCart(cart, product.id); 
 
   return (
-    <div className="col-md-3 col-sm-8 m-3">
-      <div className="card text-center p-3" key={product.id}>
-        <img src={product.image} class="card-img-top" height={"250px"} />
+    <div className="Product-Card">
+      <div className="" key={product.id}>
+        <img src={product.image} className="Card-img"  />
         <div className="card-body">
-          <h6 className="card-title my-1">{product.title.substring(0, 25)}</h6>
-          <p className="card-text lead fw-bold"> $ : {product.price}</p>
-          <p className="card-text text-secondary"> {product.rating.rate} <FaStar className="icon m-1" /></p>
+          <h6 className="card-title">{product.title.substring(0, 25)}</h6>
+          <p className="card-text "> $ : {product.price}</p>
+          <p className="card-text text-secondary"> {product.rating.rate} <FaStar className="icon " /></p>
 
           {isProductInCart ? (
-            <button className="btn btn-outline-dark " disabled>
+            <button className="btn " >
               Added 
             </button>
           ) : (
-            <button className="btn btn-outline-dark " onClick={() => handleAdd(product)}>
-              Add to cart
+            <button className="btn" onClick={() => handleAdd(product)}>
+                 <FaShoppingCart className="me-1" />   Add to cart   
             </button>
           )}
         </div>

@@ -19,7 +19,7 @@ function App() {
     <Router>
     <Navbar/>
     <Routes>
-      <Route path="/" element={<Home/>}/>
+      <Route path="/" element={<> <Home/> <Footer/></>}/>
       <Route path="/cart" element={<Cart/>}/>
       <Route path="/products" element={<ProductContainer/>}/>
       <Route path="/about" element={<About/>}/>
@@ -30,7 +30,7 @@ function App() {
 
 
     </Routes>
-    <Footer/>
+  
 
 
     </Router>

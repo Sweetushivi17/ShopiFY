@@ -24,7 +24,7 @@ const ProductContainer = () => {
 
   if (isLoading) {
     return (
-      <div className="container">
+      <div className="Product-container">
         <h1 className="all-products-title">Loading...</h1>
       </div>
     );
@@ -32,7 +32,7 @@ const ProductContainer = () => {
 
   if (isError) {
     return (
-      <div className="container">
+      <div className="Product-container">
         <h1 className="all-products-title">Something Went Wrong...</h1>
       </div>
     );
@@ -40,15 +40,14 @@ const ProductContainer = () => {
 
 if (isSuccess){
   return (
-    <div className="container d-flex flex-wrap justify-content-around p-5">
+    <div className="Product-container ">
       <h1 className="all-products-title">All Products</h1>
-
-      <div className="buttons d-flex justify-content-center">
-        <button className="btn btn-outline-dark me-2" onClick={() => setFilteredProducts(products)}>All</button>
-        <button className="btn btn-outline-dark me-2" onClick={() => handleClick("men's clothing")}>Men's Clothing</button>
-        <button className="btn btn-outline-dark me-2" onClick={() => handleClick("electronics")}>Electronics</button>
-        <button className="btn btn-outline-dark me-2" onClick={() => handleClick("women's clothing")}>Women's Clothing</button>
-        <button className="btn btn-outline-dark me-2" onClick={() => handleClick("jewelery")}>Jewellery</button>
+      <div className="buttons">
+        <button className="btn " onClick={() => setFilteredProducts(products)}>All</button>
+        <button className="btn " onClick={() => handleClick("men's clothing")}>Men's Clothing</button>
+        <button className="btn " onClick={() => handleClick("electronics")}>Electronics</button>
+        <button className="btn " onClick={() => handleClick("women's clothing")}>Women's Clothing</button>
+        <button className="btn " onClick={() => handleClick("jewelery")}>Jewellery</button>
       </div>
 
 

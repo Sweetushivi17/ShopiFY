@@ -5,6 +5,7 @@ import { remove, increaseQuantity , decreaseQuantity } from "../features/cart/ca
 
 const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
+  
 
   const handleRemove = (id) => {
     dispatch(remove(id));
@@ -21,32 +22,42 @@ const CartItem = ({ cartItem }) => {
 
   return (
     <div className="cart-item">
-      <img src={cartItem.image} alt="" />
-      <span className="details">
+     <div className="img-sec"> <img src={cartItem.image} alt="" /></div>
+      <div className="details">
         <h5>{cartItem.title}</h5>
-        <h5>Price : ${cartItem.price}</h5>
-        <h5>Qty : {cartItem.quantity} x {cartItem.price}</h5> {}
+        <h5>Price : $ {cartItem.price}</h5>
+        <h5>
+          Qty :
+          {cartItem.quantity > 1 ? (
+            <span>
+              {cartItem.quantity} x {cartItem.price}
+            </span>
+          ) : (
+            <span> 1 x {cartItem.price}</span>
+          )}
+        </h5>
+      
         <span className="btn-sec">
         <button
-          className="btn btn-outline-dark me-2"
+          className="cart-btn "
           onClick={() => handleAdd(cartItem)}
         >
           <FaPlus />
         </button>
         <button
-          className="btn btn-outline-dark me-2"
+          className="cart-btn  "
           onClick={() => handleReduce(cartItem)}
         >
           <FaMinus />
         </button>
       </span>
         <button
-          className="btn btn-outline-dark my-4 "
+          className="cart-btn remove-btn "
           onClick={() => handleRemove(cartItem.id)}
         >
           Remove Item
         </button>
-      </span>
+      </div>
     </div>
   );
 };
